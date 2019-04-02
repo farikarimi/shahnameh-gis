@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input} from '@angular/core';
+// import { MapComponent } from '../map/map.component'
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent {
 
-  constructor() { }
+  // @Input() map: MapComponent;
 
-  ngOnInit() {
-  }
-
+  events: string[] = [];
+  opened: boolean;
 }
