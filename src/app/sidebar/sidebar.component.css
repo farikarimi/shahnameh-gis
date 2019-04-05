@@ -7,9 +7,19 @@
 }
 
 mat-sidenav {
-    width: 35%;
+    width: 34%;
 }
 
 .sb-content {
-    margin-left: 10px;
+    margin-left: 15px;
+}
+
+.material-icons#arrow_back_ios {
+    font-size: 36px;
+    float: right;
+    margin-bottom: 15px;
+}
+
+.material-icons#arrow_forward_ios {
+    font-size: 36px;
 }

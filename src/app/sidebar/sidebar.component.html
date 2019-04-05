@@ -17,9 +17,10 @@
           </div>
         </mat-tab>
       </mat-tab-group>
+      <i class="material-icons" id="arrow_back_ios" (click)="sidenav.toggle()">arrow_back_ios</i>
   </mat-sidenav>
   <mat-sidenav-content role="main">
-    <button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button>
-    <app-map></app-map>
+    <button mat-button (click)="sidenav.toggle()"><i class="material-icons">arrow_forward_ios</i></button>
+    <app-map></app-map>        
   </mat-sidenav-content>
 </mat-sidenav-container>
