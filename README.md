@@ -1,4 +1,8 @@
-# ShahnamehGis
+# Shahnameh GIS
+
+A deep map with data extracted from the epic poem Shahnameh (Book of Kings) written by the Persian poet Ferdowsi between c. 977 and 1010 CE. This project is being developed by Farimah Karimi within the framework of the seminar "Digital Modelling and Maps" (Digitale Modellierung und Karten) taught by Professor Øyvind Eide (Institute of Digital Humanities) at the University of Cologne.
+
+#
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
 
