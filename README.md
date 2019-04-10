@@ -1,6 +1,6 @@
-# Shahnameh-GIS
+# Shahnameh GIS
 
-A deep map visualizing geospatial information extracted from the epic poem Shahnameh ("The Book of Kings") written by the Persian poet Ferdowsi between c. 977 and 1010 CE. This project is being developed by Farimah Karimi within the framework of the seminar "Modellierung und digitale Karten" ("Modelling and Digital Maps") taught by Professor Dr. Øyvind Eide (Institute for Digital Humanities) at the University of Cologne. 
+A deep map with data extracted from the epic poem Shahnameh (Book of Kings) written by the Persian poet Ferdowsi between c. 977 and 1010 CE. This project is being developed by Farimah Karimi within the framework of the seminar "Digital Modelling and Maps" (Digitale Modellierung und Karten) taught by Professor Øyvind Eide (Institute of Digital Humanities) at the University of Cologne.
 
 #
 

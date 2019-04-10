@@ -1,0 +1,39 @@
+.sb-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+mat-sidenav {
+    width: 34%;
+}
+
+.sb-content {
+    margin-left: 15px;
+}
+
+.material-icons {
+    font-size: 36px;
+}
+
+.arrow_button {
+    cursor: pointer;
+    position: absolute;    
+    width: 40px;
+}
+
+#arrow_forward_button {
+    z-index: 9;
+    margin-top: 80px;
+    margin-left: -10px;
+
+}
+
+#arrow_back_button {
+    z-index: 10;
+    margin-top: 16%;
+    margin-left: 85%;
+}
+

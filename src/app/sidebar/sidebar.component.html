@@ -1,0 +1,26 @@
+<mat-sidenav-container class="sb-container" hasBackdrop="false">
+  <mat-sidenav #sidenav mode="over" [(opened)]="opened" role="region">
+      <button class="arrow_button" id="arrow_back_button" mat-button (click)="sidenav.close()"><i class="material-icons" id="arrow_back_ios">arrow_back_ios</i></button>
+      <mat-tab-group animationDuration="0ms">
+        <mat-tab label="Occurences">
+          <div class="sb-content">
+            <h2>Occurences</h2>
+          </div>
+        </mat-tab>
+        <mat-tab label="Characters">
+          <div class="sb-content">
+            <h2>Characters</h2>
+          </div>
+        </mat-tab>
+        <mat-tab label="Events">
+          <div class="sb-content">
+            <h2>Events</h2>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+  </mat-sidenav>
+  <mat-sidenav-content role="main">
+    <button class="arrow_button" id="arrow_forward_button" mat-button (click)="sidenav.open()"><i class="material-icons" id="arrow_forward_ios">arrow_forward_ios</i></button>
+    <app-map></app-map>        
+  </mat-sidenav-content>
+</mat-sidenav-container>
