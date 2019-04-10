@@ -5,3 +5,7 @@
 .mat-tab-label {
     min-width: 140px !important;
 }
+
+#map > div > div.ol-overlaycontainer-stopevent > div.ol-scale-line.ol-unselectable {
+    margin-left: 85%;
+}

@@ -8,12 +8,14 @@ import {CustomMaterial} from './custom-material/custom-material.module';
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { GeoobjectsComponent } from './geoobjects/geoobjects.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
-    SidebarComponent
+    SidebarComponent,
+    GeoobjectsComponent
   ],
   imports: [
     BrowserModule,
