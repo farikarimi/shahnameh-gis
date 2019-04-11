@@ -1,22 +1,49 @@
 {
-  "type": "FeatureCollection",
-  "features": [{
-      "type": "Feature",
-      "geometry": {
-          "type": "Point",
-          "coordinates": [36.454167, 59.566944]
-      },
-      "properties": {
-          "name": "Tūs"
-      }
-  }, {
-      "type": "Feature",
-      "geometry": {
-          "type": "Point",
-          "coordinates": [69.166667, 34.533333]
-      },
-      "properties": {               
-        "name": "Kabul"
-    }
-  }]
+    "type": "FeatureCollection",
+    "features": [{
+        "type": "Feature",
+        "properties": {
+            "name": "Kabul"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [69.166667, 34.533333]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "name": "Balkh"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [66.8972, 36.75635]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "name": "Amol"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [52.35072, 36.46961]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "name": "Kandahar"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [65.71013, 31.61332]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "name": "Bukhara"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [64.42861, 39.77472]
+        }
+    }]
 }
