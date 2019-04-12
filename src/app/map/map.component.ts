@@ -53,6 +53,10 @@ export class MapComponent implements AfterViewInit {
         minZoom: 2
       })
     });
+  
+    //add the VectorLayer with the geo-objects to the map
+    map.addLayer(this.geoobjectsComponent.vectorLayer);
+
   }
 
 }
