@@ -19,9 +19,9 @@ import { GeoobjectsComponent } from './geoobjects/geoobjects.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule,
     CustomMaterial,
     MatNativeDateModule,
     ReactiveFormsModule
