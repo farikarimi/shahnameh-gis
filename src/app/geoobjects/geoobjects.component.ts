@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { GeojsonService } from '../geojson.service';
-import  GeoJSON from 'ol/format/GeoJSON';
+import GeoJSON from 'ol/format/GeoJSON';
 import {Vector as VectorLayer} from 'ol/layer';
 import VectorSource from 'ol/source/Vector';
 
@@ -17,17 +17,17 @@ export class GeoobjectsComponent {
 
   constructor(private geojsonService: GeojsonService) { }
 
-  //should save the data returned by getGeojson() in the geojson variable as a GeoJSON-object
-  setGeojson() {
-    this.geojsonService.getGeojson()
-      .subscribe((geojson: GeoJSON) => this.geojson = geojson);
-    }
-  
-  //save the features array from the GeoJSON-object in the features property of the VectorSource
+  // should save the data returned by getGeojson() in the geojson variable as a GeoJSON-object
+  // setGeojson() {
+  //   this.geojsonService.getGeojson()
+  //     .subscribe((geojson: GeoJSON) => this.geojson = geojson);
+  //   }
+
+  // save the features array from the GeoJSON-object in the features property of the VectorSource
   setVectorLayer() {
     this.vectorLayer = new VectorLayer({
       source: new VectorSource({
-        features: this.geojson.readFeatures()
+        features: (new GeoJSON()).readFeatures(this.geojsonService.getGeojson())
       })
     });
   }
