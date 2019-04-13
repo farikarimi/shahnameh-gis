@@ -17,30 +17,12 @@ export class GeoobjectsComponent {
 
   constructor(private geojsonService: GeojsonService) { }
 
-  // should save the data returned by getGeojson() in the geojson variable as a GeoJSON-object
-  // setGeojson() {
-  //   this.geojsonService.getGeojson()
-  //     .subscribe((geojson: GeoJSON) => this.geojson = geojson);
-  //   }
-
-  // save the features array from the GeoJSON-object in the features property of the VectorSource
   setVectorLayer() {
     this.vectorLayer = new VectorLayer({
       source: new VectorSource({
-        features: (new GeoJSON()).readFeatures(this.geojsonService.getGeojson())
+        features: (new GeoJSON({featureProjection:"EPSG:3857"}))
+        .readFeatures(this.geojsonService.getGeojson())
       })
     });
   }
-
-  // another possible way without using the service that also doesn't work
-
-  // setVectorLayer1() {
-  //   this.vectorLayer = new VectorLayer({
-  //     source: new VectorSource({
-  //       url: '../data/places.json',
-  //       format: GeoJSON
-  //     })
-  //   });
-  // }
-
 }

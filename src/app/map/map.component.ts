@@ -33,8 +33,7 @@ export class MapComponent implements AfterViewInit {
       layers: [
         new TileLayer({
           source: new OSM()
-        })/*,
-        this.geoobjectsComponent.vectorLayer*/
+        })
       ],
       controls: defaultControls({
         attribution: false
