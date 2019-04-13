@@ -8,24 +8,22 @@ import { HttpClient } from '@angular/common/http';
 // import { Observable, throwError } from 'rxjs';
 // import { catchError } from 'rxjs/operators';
 import GeoJSON from 'ol/format/GeoJSON';
+import {features, type} from '../data/places.json';
+
 
 @Injectable()
-
 export class GeojsonService {
-
-  geojsonUrl = 'data/places.json';
-  // GeoJSON format from ol-library
   geojson = GeoJSON;
 
-  constructor(private http: HttpClient) { }
+  constructor() {}
 
   // simplest attempt at getting the GeoJSON file from local server
   // should return an Observable that you can later subscribe to
   getGeojson() {
-    return this.http.get(this.geojsonUrl);
+    return {features, type};
   }
 
-  //other attempts that also failed
+  // other attempts that also failed
 
   // getGeojson1() {
   //   return this.http.get<GeoJSON>(this.geojsonUrl)
@@ -42,7 +40,7 @@ export class GeojsonService {
   //     return this.geojson;
   // }
 
-  
+
   // error handling, function is called in getGeojson2()
 
   // private handleError(error: HttpErrorResponse) {
