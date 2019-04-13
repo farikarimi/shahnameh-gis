@@ -16,21 +16,19 @@ import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import { GeoobjectsComponent } from '../geoobjects/geoobjects.component';
 
-
-
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
+  styleUrls: ['./map.component.css'],
 })
 export class MapComponent implements AfterViewInit {
 
   @ViewChild(GeoobjectsComponent)
-  private geoobjectsComponent: GeoobjectsComponent;
+  geoobjectsComponent: GeoobjectsComponent;
 
   ngAfterViewInit() {
 
-    var map = new Map({
+    const map = new Map({
       target: 'map',
       layers: [
         new TileLayer({
@@ -53,10 +51,10 @@ export class MapComponent implements AfterViewInit {
         minZoom: 2
       })
     });
-  
-    //add the VectorLayer with the geo-objects to the map
-    map.addLayer(this.geoobjectsComponent.vectorLayer);
 
+    // add the VectorLayer with the geo-objects to the map
+    this.geoobjectsComponent.setVectorLayer();
+    map.addLayer(this.geoobjectsComponent.vectorLayer);
   }
 
 }
