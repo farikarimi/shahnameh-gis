@@ -1,15 +1,14 @@
-import { Component, Input} from '@angular/core';
-// import { MapComponent } from '../map/map.component'
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent {
 
-  // @Input() map: MapComponent;
+export class SidebarComponent {
 
   events: string[] = [];
   opened: boolean;
+
 }

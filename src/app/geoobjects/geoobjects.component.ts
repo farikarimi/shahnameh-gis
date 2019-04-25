@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { GeojsonService } from '../geojson.service';
+import { Component, OnInit } from '@angular/core';
 import GeoJSON from 'ol/format/GeoJSON';
 import {Vector as VectorLayer} from 'ol/layer';
 import VectorSource from 'ol/source/Vector';
+import { GeojsonService } from '../geojson.service';
 
 @Component({
   selector: 'app-geoobjects',
@@ -10,19 +10,23 @@ import VectorSource from 'ol/source/Vector';
   providers: [ GeojsonService ],
   styleUrls: ['./geoobjects.component.css']
 })
-export class GeoobjectsComponent {
+
+export class GeoobjectsComponent implements OnInit {
 
   geojson: GeoJSON;
   vectorLayer;
 
   constructor(private geojsonService: GeojsonService) { }
 
-  setVectorLayer() {
+  ngOnInit() {
+
     this.vectorLayer = new VectorLayer({
       source: new VectorSource({
         features: (new GeoJSON({featureProjection:"EPSG:3857"}))
         .readFeatures(this.geojsonService.getGeojson())
       })
     });
+    
   }
+
 }
