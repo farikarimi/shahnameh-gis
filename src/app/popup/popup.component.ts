@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
 import Overlay from 'ol/Overlay';
 import Feature from 'ol/Feature';
-// import { NgbPopover } from '@ng-bootstrap/ng-bootstrap/popover/popover';
+import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-popup',
@@ -10,8 +10,8 @@ import Feature from 'ol/Feature';
 })
 
 export class PopupComponent implements AfterViewInit {
-  
-  @ViewChild('popupElement') popupElement: ElementRef;
+
+  @ViewChild('popupElement') popupElement: NgbPopover;
 
   popup;
   feature: Feature;
@@ -19,7 +19,7 @@ export class PopupComponent implements AfterViewInit {
   ngAfterViewInit() {
 
     this.popup = new Overlay({
-      element: this.popupElement.nativeElement,
+      // element: this.popupElement.nativeElement, // IDK what's this
       positioning: 'bottom-center',
       stopEvent: false,
       offset: [0, 0]
@@ -27,14 +27,13 @@ export class PopupComponent implements AfterViewInit {
 
   }
 
-showPopup (feature) {
+showPopup(feature) {
     if (feature) {
       this.feature = feature;
-      var coordinates = feature.getGeometry().getCoordinates();
-      this.popup.setPosition(coordinates);
-      console.log(this.popupElement.nativeElement);
+      const coordinates = feature.getGeometry().getCoordinates();
+      // this.popup.setPosition(coordinates);
       // show popup on map
-      this.popupElement.nativeElement.open();
+      this.popupElement.open();
     }
   }
 

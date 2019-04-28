@@ -1,11 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "bootstrap/dist/css/bootstrap.min.css";
 
 .mat-tab-label {
-    min-width: 140px !important;
+  min-width: 140px !important;
 }
 
-#map > div > div.ol-overlaycontainer-stopevent > div.ol-scale-line.ol-unselectable {
-    margin-left: 85%;
+#map
+  > div
+  > div.ol-overlaycontainer-stopevent
+  > div.ol-scale-line.ol-unselectable {
+  margin-left: 85%;
 }

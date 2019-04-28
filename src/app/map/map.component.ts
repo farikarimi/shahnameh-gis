@@ -48,14 +48,14 @@ export class MapComponent implements AfterViewInit {
 
     map.addLayer(this.geoobjectsComponent.vectorLayer);
     map.addOverlay(this.popupComponent.popup);
-  
+
     map.on('click', (evt) => {
-      var feature = map.forEachFeatureAtPixel(evt.pixel,
+      let feature = map.forEachFeatureAtPixel(evt.pixel,
         (feature) => {
           return feature;
         });
-        console.log(feature);
-        this.popupComponent.showPopup(feature);
+      console.log(feature);
+      this.popupComponent.showPopup(feature);
     });
 
   }
