@@ -13,3 +13,7 @@
   > div.ol-scale-line.ol-unselectable {
   margin-left: 85%;
 }
+
+ngb-popover-window {
+  width: 120px;
+}

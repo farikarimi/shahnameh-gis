@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, Input, Output} from '@angular/core';
 import Overlay from 'ol/Overlay';
 import Feature from 'ol/Feature';
 import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
@@ -14,8 +14,8 @@ export class PopupComponent implements AfterViewInit {
   @ViewChild('popover') ngbPopover: NgbPopover;
   @ViewChild('popup') popupElement: ElementRef;
 
-  popup;
-  feature: Feature;
+  popup: Overlay;
+  placeName: string;
 
   ngAfterViewInit() {
 
@@ -28,12 +28,12 @@ export class PopupComponent implements AfterViewInit {
 
   }
 
-showPopup(feature) {
-    if (feature) {
-      this.feature = feature;
-      const coordinates = feature.getGeometry().getCoordinates();
-      this.popup.setPosition(coordinates);
-      this.ngbPopover.toggle();
+  showPopup = (feature: Feature) : void => {
+    if (feature && feature !== undefined) {
+      this.placeName = feature.get('name');
+      this.ngbPopover.ngbPopover = this.placeName;
+      this.popup.setPosition(feature.getGeometry().getCoordinates());
+      this.ngbPopover.open();
     }
   }
 

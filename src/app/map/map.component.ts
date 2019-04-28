@@ -4,6 +4,7 @@ import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
+import Feature from 'ol/Feature';
 import { defaults as defaultControls, Attribution, ScaleLine } from 'ol/control';
 import { defaults as defaultInteractions, DragRotateAndZoom } from 'ol/interaction';
 import { fromLonLat } from 'ol/proj';
@@ -49,13 +50,18 @@ export class MapComponent implements AfterViewInit {
     map.addLayer(this.geoobjectsComponent.vectorLayer);
     map.addOverlay(this.popupComponent.popup);
 
-    map.on('click', (evt) => {
-      let feature = map.forEachFeatureAtPixel(evt.pixel,
+    map.on('click', (event) => {
+      var feature : Feature = map.forEachFeatureAtPixel(event.pixel,
         (feature) => {
           return feature;
         });
       console.log(feature);
-      this.popupComponent.showPopup(feature);
+      if (this.popupComponent.ngbPopover.isOpen()) {
+        this.popupComponent.ngbPopover.close()
+      }
+      if (feature && feature !== undefined) {
+        this.popupComponent.showPopup(feature);
+      }
     });
 
   }
