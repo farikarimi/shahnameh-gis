@@ -10,17 +10,22 @@ import { defaults as defaultInteractions, DragRotateAndZoom } from 'ol/interacti
 import { fromLonLat } from 'ol/proj';
 import { GeoobjectsComponent } from '../geoobjects/geoobjects.component';
 import { PopupComponent } from '../popup/popup.component';
+import { TextService } from '../text.service';
+
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css'],
+  providers: [ TextService ],
+  styleUrls: ['./map.component.css']
 })
 
 export class MapComponent implements AfterViewInit {
 
-  @ViewChild(PopupComponent) popupComponent: PopupComponent;
-  @ViewChild(GeoobjectsComponent) geoobjectsComponent: GeoobjectsComponent;
+  @ViewChild(PopupComponent, { static: false }) popupComponent: PopupComponent;
+  @ViewChild(GeoobjectsComponent, { static: false }) geoobjectsComponent: GeoobjectsComponent;
+
+  constructor(private textService: TextService) { }
 
   ngAfterViewInit() {
 
@@ -61,6 +66,7 @@ export class MapComponent implements AfterViewInit {
       }
       if (feature && feature !== undefined) {
         this.popupComponent.showPopup(feature);
+        this.textService.getOccurences(feature.get('name2')).subscribe(list => console.log(list));
       }
     });
 

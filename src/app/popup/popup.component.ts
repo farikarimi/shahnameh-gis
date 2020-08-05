@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, ElementRef, Input, Output} from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import Overlay from 'ol/Overlay';
 import Feature from 'ol/Feature';
 import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
@@ -11,8 +11,8 @@ import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 
 export class PopupComponent implements AfterViewInit {
 
-  @ViewChild('popover') ngbPopover: NgbPopover;
-  @ViewChild('popup') popupElement: ElementRef;
+  @ViewChild('popover', { static: false }) ngbPopover: NgbPopover;
+  @ViewChild('popup', { static: false }) popupElement: ElementRef;
 
   popup: Overlay;
   placeName: string;

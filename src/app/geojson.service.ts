@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import GeoJSON from 'ol/format/GeoJSON';
-import {features, type} from '../data/places.json';
+import {features, type} from '../assets/data/places.json';
 
 @Injectable()
 

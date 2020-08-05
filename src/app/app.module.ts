@@ -10,6 +10,7 @@ import { MapComponent } from './map/map.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { GeoobjectsComponent } from './geoobjects/geoobjects.component';
 import { PopupComponent } from './popup/popup.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { PopupComponent } from './popup/popup.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     NgbPopoverModule,
     BrowserAnimationsModule,
     FormsModule,

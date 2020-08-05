@@ -1,0 +1,54 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+        "type": "Feature",
+        "properties": {
+            "name": "Kabul",
+            "name2": "کابل"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [69.166667, 34.533333]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "name": "Balkh",
+            "name2": "بلخ"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [66.8972, 36.75635]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "name": "Amol",
+            "name2": "آمل"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [52.35072, 36.46961]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "name": "Kandahar",
+            "name2": "قندهار"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [65.71013, 31.61332]
+        }
+    }, {
+        "type": "Feature",
+        "properties": {
+            "name": "Bukhara",
+            "name2": "بخارا"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [64.42861, 39.77472]
+        }
+    }]
+}
