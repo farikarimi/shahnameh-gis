@@ -7,12 +7,13 @@ import { map } from 'rxjs/operators';
 export class TextService {
 
   private textURL: string = 'assets/data/frdvsi.txt';
+  private shahnamehText$ = this.http.get(this.textURL, {responseType: 'text'});
 
   constructor(private http: HttpClient) { }
   
   public getOccurences(substr) {
    return this.http.get(this.textURL, {responseType: 'text'}).pipe(
-      map(txt => this.findAllInText(substr, txt))
+     map(txt => this.findAllInText(substr, txt))
      );
   }
 
@@ -33,5 +34,22 @@ export class TextService {
     }
     return indexList;
   }
+
+
+  public getPreviews(indices) {
+    let previews: string[] = [];
+    let subscription = this.shahnamehText$.subscribe(shText => 
+      indices.forEach(index => {
+        let previewText = shText.substr(index-110, 200);
+        previews.push(previewText);
+      })
+    );
+    
+    setTimeout(function(){
+      subscription.unsubscribe()
+    }, 5000);
+
+    return previews;
+   }
 
 }

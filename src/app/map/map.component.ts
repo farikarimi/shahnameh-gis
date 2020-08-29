@@ -11,6 +11,8 @@ import { fromLonLat } from 'ol/proj';
 import { GeoobjectsComponent } from '../geoobjects/geoobjects.component';
 import { PopupComponent } from '../popup/popup.component';
 import { TextService } from '../text.service';
+import { SidebarComponent } from '../sidebar/sidebar.component';
+import { SelectedFeatureService } from '../selected-feature.service';
 
 
 @Component({
@@ -24,8 +26,12 @@ export class MapComponent implements AfterViewInit {
 
   @ViewChild(PopupComponent, { static: false }) popupComponent: PopupComponent;
   @ViewChild(GeoobjectsComponent, { static: false }) geoobjectsComponent: GeoobjectsComponent;
+  @ViewChild(SidebarComponent, { static: false }) sidebarComponent: SidebarComponent;
 
-  constructor(private textService: TextService) { }
+  constructor(
+    private textService: TextService,
+    private selectedFeatureService: SelectedFeatureService
+  ) { }
 
   ngAfterViewInit() {
 
@@ -66,8 +72,10 @@ export class MapComponent implements AfterViewInit {
       }
       if (feature && feature !== undefined) {
         this.popupComponent.showPopup(feature);
-        this.textService.getOccurences(feature.get('name2')).subscribe(list => console.log(list));
+        this.selectedFeatureService.selectedFeature.next(feature);
+
       }
+
     });
 
   }

@@ -11,6 +11,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { GeoobjectsComponent } from './geoobjects/geoobjects.component';
 import { PopupComponent } from './popup/popup.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     CustomMaterial,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   entryComponents: [SidebarComponent],
   providers: [],
