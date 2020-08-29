@@ -1,38 +1,46 @@
-import { Component } from '@angular/core';
-import "ol/ol.css";
-import Map from "ol/Map";
-import View from "ol/View";
-import {
-  defaults as defaultControls,
-  Attribution,
-  FullScreen/*,
-  ScaleLine*/
-} from "ol/control";
-import {
-  defaults as defaultInteractions,
-  DragRotateAndZoom
-} from "ol/interaction";
-import { fromLonLat } from "ol/proj";
-import TileLayer from "ol/layer/Tile";
-import OSM from "ol/source/OSM";
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import 'ol/ol.css';
+import Map from 'ol/Map';
+import View from 'ol/View';
+import TileLayer from 'ol/layer/Tile';
+import OSM from 'ol/source/OSM';
+import Feature from 'ol/Feature';
+import { defaults as defaultControls, Attribution, ScaleLine } from 'ol/control';
+import { defaults as defaultInteractions, DragRotateAndZoom } from 'ol/interaction';
+import { fromLonLat } from 'ol/proj';
+import { GeoobjectsComponent } from '../geoobjects/geoobjects.component';
+import { PopupComponent } from '../popup/popup.component';
+import { TextService } from '../text.service';
+import { SidebarComponent } from '../sidebar/sidebar.component';
+import { SelectedFeatureService } from '../selected-feature.service';
+
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
+  providers: [ TextService ],
   styleUrls: ['./map.component.css']
 })
-export class MapComponent {
+
+export class MapComponent implements AfterViewInit {
+
+  @ViewChild(PopupComponent, { static: false }) popupComponent: PopupComponent;
+  @ViewChild(GeoobjectsComponent, { static: false }) geoobjectsComponent: GeoobjectsComponent;
+  @ViewChild(SidebarComponent, { static: false }) sidebarComponent: SidebarComponent;
+
+  constructor(
+    private textService: TextService,
+    private selectedFeatureService: SelectedFeatureService
+  ) { }
 
   ngAfterViewInit() {
-    // console.log(`OnInit`);
 
-    var map = new Map({
+    const map = new Map({
       target: 'map',
       layers: [
         new TileLayer({
           source: new OSM()
-        })/*,
-        vectorLayer*/
+        })
       ],
       controls: defaultControls({
         attribution: false
@@ -40,8 +48,7 @@ export class MapComponent {
         new Attribution({
           collapsible: true
         }),
-        new FullScreen()/*,
-        new ScaleLine()*/
+        new ScaleLine()
       ]),
       interactions: defaultInteractions().extend([new DragRotateAndZoom()]),
       view: new View({
@@ -50,6 +57,27 @@ export class MapComponent {
         minZoom: 2
       })
     });
+
+    map.addLayer(this.geoobjectsComponent.vectorLayer);
+    map.addOverlay(this.popupComponent.popup);
+
+    map.on('click', (event) => {
+      var feature : Feature = map.forEachFeatureAtPixel(event.pixel,
+        (feature) => {
+          return feature;
+        });
+      console.log(feature);
+      if (this.popupComponent.ngbPopover.isOpen()) {
+        this.popupComponent.ngbPopover.close()
+      }
+      if (feature && feature !== undefined) {
+        this.popupComponent.showPopup(feature);
+        this.selectedFeatureService.selectedFeature.next(feature);
+
+      }
+
+    });
+
   }
 
 }
