@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import Feature from 'ol/Feature';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class SelectedFeatureService {
 
-  selectedFeature = new Subject<Feature>();
+  selectedFeature = new BehaviorSubject<Feature>(undefined);
+  // newFeature = new BehaviorSubject<boolean>();
 
 }

@@ -16,6 +16,7 @@ export class PopupComponent implements AfterViewInit {
 
   popup: Overlay;
   placeName: string;
+  persianName: string;
 
   ngAfterViewInit() {
 
@@ -31,8 +32,9 @@ export class PopupComponent implements AfterViewInit {
   showPopup = (feature: Feature) : void => {
     if (feature && feature !== undefined) {
       this.placeName = feature.get('name');
-      this.ngbPopover.ngbPopover = this.placeName;
+      this.persianName = feature.get('name2');
       this.popup.setPosition(feature.getGeometry().getCoordinates());
+      this.ngbPopover.popoverTitle = this.placeName;
       this.ngbPopover.open();
     }
   }

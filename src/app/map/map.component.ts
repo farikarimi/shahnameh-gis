@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, OnInit, EventEmitter, Output } from '@angular/core';
 import 'ol/ol.css';
 import Map from 'ol/Map';
 import View from 'ol/View';
@@ -10,26 +10,24 @@ import { defaults as defaultInteractions, DragRotateAndZoom } from 'ol/interacti
 import { fromLonLat } from 'ol/proj';
 import { GeoobjectsComponent } from '../geoobjects/geoobjects.component';
 import { PopupComponent } from '../popup/popup.component';
-import { TextService } from '../text.service';
-import { SidebarComponent } from '../sidebar/sidebar.component';
 import { SelectedFeatureService } from '../selected-feature.service';
 
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  providers: [ TextService ],
   styleUrls: ['./map.component.css']
 })
 
 export class MapComponent implements AfterViewInit {
 
+  @Output()
+  newFeature: EventEmitter<Feature> = new EventEmitter<Feature>();
+
   @ViewChild(PopupComponent, { static: false }) popupComponent: PopupComponent;
   @ViewChild(GeoobjectsComponent, { static: false }) geoobjectsComponent: GeoobjectsComponent;
-  @ViewChild(SidebarComponent, { static: false }) sidebarComponent: SidebarComponent;
 
   constructor(
-    private textService: TextService,
     private selectedFeatureService: SelectedFeatureService
   ) { }
 
@@ -62,7 +60,7 @@ export class MapComponent implements AfterViewInit {
     map.addOverlay(this.popupComponent.popup);
 
     map.on('click', (event) => {
-      var feature : Feature = map.forEachFeatureAtPixel(event.pixel,
+      var feature: Feature = map.forEachFeatureAtPixel(event.pixel,
         (feature) => {
           return feature;
         });
@@ -72,8 +70,8 @@ export class MapComponent implements AfterViewInit {
       }
       if (feature && feature !== undefined) {
         this.popupComponent.showPopup(feature);
+        this.newFeature.emit();
         this.selectedFeatureService.selectedFeature.next(feature);
-
       }
 
     });
