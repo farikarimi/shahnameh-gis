@@ -1,9 +1,10 @@
-import { Component, AfterViewInit, OnChanges, SimpleChanges, OnInit, ViewChild, Inject, InjectionToken} from '@angular/core';
+import { Component, AfterViewInit, ViewChild, Inject} from '@angular/core';
 import { TextService } from '../text.service';
 import { SelectedFeatureService } from '../selected-feature.service';
 import { switchMap, map, filter } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { MatSidenav } from '@angular/material';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-sidebar',
@@ -20,7 +21,6 @@ export class SidebarComponent implements AfterViewInit {
 
   @ViewChild(MatSidenav, {static: false}) sidenav: MatSidenav;
 
-  
   events: string[] = [];
   opened: boolean;
   showWelcomeMessage: boolean = true;
@@ -36,6 +36,7 @@ export class SidebarComponent implements AfterViewInit {
   );
 
   constructor(
+    @Inject(DOCUMENT) private document: Document,
     private textService: TextService,
     private selectedFeatureService: SelectedFeatureService
   ) {}
@@ -43,6 +44,7 @@ export class SidebarComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.previewMap$.subscribe(previewMap => console.log(previewMap));
     //this.taggedText$.subscribe(text => console.log(text));
+
   }
 
   showMoreText(i: number) {
@@ -53,6 +55,9 @@ export class SidebarComponent implements AfterViewInit {
     console.log('position of the occurrence in the text: ' + positionInText);
     let id = ['occ-', positionInText.toString()].join('');
     console.log('element id: ', id);
+    setTimeout(function(){
+      this.document.getElementById(id).scrollIntoView();
+    }, 5000);
   }
 
   setNewFeature() {
