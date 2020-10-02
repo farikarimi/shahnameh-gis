@@ -1,4 +1,5 @@
 <div #popup>
-<span [ngbPopover]="placeName" popoverTitle="Place name:" triggers="manual" #popover="ngbPopover">
-</span>
+    <ng-template #popContent><p id="persianName">{{persianName}}</p></ng-template>
+    <span [ngbPopover]="popContent" triggers="manual" #popover="ngbPopover">
+    </span>
 </div>

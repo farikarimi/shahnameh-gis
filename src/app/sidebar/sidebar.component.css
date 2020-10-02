@@ -7,7 +7,7 @@
 }
 
 mat-sidenav {
-    width: 25%;
+    width: 33%;
 }
 
 .sb-content {
@@ -34,17 +34,33 @@ mat-sidenav {
 #arrow_back_button {
     z-index: 10;
     margin-top: 17px;
-    margin-left: 85%;
+    margin-left: 81%;
 }
 
-#preview-span {
+#title {
+    margin-bottom: 20px;
+}
+
+.topContent {
+    margin-top: 17px;
+}
+
+.sideContent {
     margin-right: 15px;
-    text-align: right;
+    text-align: center;
     white-space: pre-wrap;
     line-height: 15px;
 }
 
-#title {
-    margin-top: 17px;
-    margin-bottom: 20px;
+#preview-p {
+    margin-left: 30%;
+}
+
+#welcome {
+    font-size: 28pt;
+}
+
+#welcomeText {
+    margin-right: 15px;
+    margin-left: 10px;
 }
