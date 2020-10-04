@@ -23,12 +23,12 @@
                 <mat-divider id="list-divider" *ngIf="!last"></mat-divider>
               </mat-action-list>
             </div>
-            <div *ngIf="showText$ | async">
-              <button class="arrow_button" id="back_button" mat-button (click)="backToOccList()"><i class="material-icons" id="back_ios">arrow_back_ios</i></button>
-              <p id="wholeText" class="sideContent topContent" [innerHtml]="taggedText$ | async | safeHtml">
-                {{ taggedText$ | async }}
-              </p>
-            </div>
+              <div *ngIf="showText$ | async">
+                <button class="arrow_button" id="back_button" mat-button (click)="backToOccList()"><i class="material-icons" id="back_ios">arrow_back_ios</i></button>
+                <p id="wholeText" class="sideContent topContent" [innerHtml]="taggedText$ | async | safeHtml">
+                  {{ taggedText$ | async }}
+                </p>
+              </div>
           </div>
 <!--        </mat-tab>
         <mat-tab label="Characters">

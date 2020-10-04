@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { resolveTxt } from 'dns';
 import { map } from 'rxjs/operators';
 
 @Injectable()
@@ -8,7 +7,7 @@ import { map } from 'rxjs/operators';
 export class TextService {
 
   private textURL: string = 'assets/data/frdvsi.txt';
-  public shahnamehText$ = this.http.get(this.textURL, {responseType: 'text'});
+  public shahnamehText$ = this.http.get(this.textURL, {responseType: 'text'}).pipe(map(txt => {return txt}));
   public currentIndexList: number[] = [];
   txt: string;
   currentName: string;
@@ -69,7 +68,7 @@ export class TextService {
    public tagText(){
      let txt: string;
      let prefix1: string = '<span id="occ-';
-     let prefix2: string = '"><mark><b>';
+     let prefix2: string = '" #occInText ><mark><b>';
      let suffix: string = '</b></mark></span>';
      let lenSum: number = prefix1.length + prefix2.length + suffix.length;
      let addLen: number = 0;
