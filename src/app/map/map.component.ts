@@ -67,7 +67,8 @@ export class MapComponent implements AfterViewInit {
         // When the page is (re)loaded, the map is centered and zoomed on Iran and neighboring regions.
         center: fromLonLat([59.56, 36.45]),
         zoom: 4,
-        minZoom: 2
+        minZoom: 2,
+        extent: [-900000, -7000000, 12000000, 8000000] // [minX, minY, maxX, maxY]
       })
     });
 
