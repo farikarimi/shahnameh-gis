@@ -7,7 +7,7 @@
 }
 
 mat-sidenav {
-    width: 33%;
+    width: 34%;
 }
 
 .sb-content {
@@ -28,12 +28,12 @@ mat-sidenav {
     z-index: 9;
     margin-top: 80px;
     margin-left: -10px;
-
 }
 
-#arrow_back_button {
+#close_button {
+    position: absolute;
     z-index: 10;
-    margin-top: 17px;
+    margin-top: 4px;
     margin-left: 81%;
 }
 
