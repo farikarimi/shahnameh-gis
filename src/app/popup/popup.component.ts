@@ -28,6 +28,9 @@ export class PopupComponent implements AfterViewInit {
   // Property storing the Persian name of the selected place.
   persianName: string;
 
+  // Property storing the Wikipedia link for the selected place.
+  wikiLink: string;
+
   ngAfterViewInit() {
 
     /* An OpenLayers OverLay element is saved in the popup property. */
@@ -45,12 +48,13 @@ export class PopupComponent implements AfterViewInit {
       // The English and Persian names of the passed place (feature) are saved in the respective properties.
       this.placeName = feature.get('name');
       this.persianName = feature.get('name2');
+      // The Wikipedia link of the place name is saved in "wikiLink" component property.
+      this.wikiLink = feature.get('wikilink');
       // The position of the pop-up (OpenLayers OverLay) is set using the coordinates of the passed feature.
       this.popup.setPosition(feature.getGeometry().getCoordinates());
-      // The English name of the selected place is set as the title of the pop-up.
-      this.ngbPopover.popoverTitle = this.placeName;
       // The pop-up is opened.
       this.ngbPopover.open();
   }
+
 
 }

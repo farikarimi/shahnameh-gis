@@ -1,5 +1,10 @@
-<div #popup>
-    <ng-template #popContent><p id="persianName">{{persianName}}</p></ng-template>
-    <span [ngbPopover]="popContent" triggers="manual" #popover="ngbPopover">
-    </span>
+<div #popup id="popup">
+    <ng-template #popTitle>{{placeName}}</ng-template>
+    <ng-template #popContent>
+        <p id="persianName">{{persianName}}</p>
+        <div *ngIf="wikiLink">
+            <span id="wiki-link"><a href="https://{{wikiLink}}" target="_blank">Wikipedia page</a></span>
+        </div>
+    </ng-template>
+    <span [ngbPopover]="popContent" [popoverTitle]="popTitle" triggers="manual" #popover="ngbPopover"></span>
 </div>

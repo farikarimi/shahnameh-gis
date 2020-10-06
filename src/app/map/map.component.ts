@@ -84,10 +84,6 @@ export class MapComponent implements AfterViewInit {
           return feature;
         });
       console.log(feature);
-      // if a popup – for the place selected before the current place – is open, it's closed,
-      if (this.popupComponent.ngbPopover.isOpen()) {
-        this.popupComponent.ngbPopover.close()
-      }
       // if the feature is not null and is not undefined
       if (feature && feature !== undefined) {
         // the popup for the current place is shown,

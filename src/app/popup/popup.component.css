@@ -2,7 +2,10 @@
     text-align: right;
 }
 
+.popover-content {
+    width: 400px;
+}
 
-.popover {
-    width: 500px;
+#wiki-link {
+    font-size: small;
 }
