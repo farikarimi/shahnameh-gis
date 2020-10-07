@@ -18,6 +18,7 @@
     ],
     "lib": [
       "ES2018",
+      "es2019.string",
       "ES2020.String",
       "DOM"
     ]
