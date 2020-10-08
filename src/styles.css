@@ -12,6 +12,14 @@
   > div.ol-overlaycontainer-stopevent
   > div.ol-scale-line.ol-unselectable {
   margin-left: 85%;
+  margin-bottom: 15px;
+}
+
+#map 
+> div 
+> div.ol-overlaycontainer-stopevent 
+> div.ol-attribution.ol-unselectable.ol-control.ol-uncollapsible {
+  margin-bottom: 2px;
 }
 
 ngb-popover-window {

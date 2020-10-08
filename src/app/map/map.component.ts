@@ -53,11 +53,9 @@ export class MapComponent implements AfterViewInit {
         })
       ],
       controls: defaultControls({
-        attribution: false
+        // OSM attribution
+        attribution: true
       }).extend([
-        new Attribution({
-          collapsible: true
-        }),
         // Scale line to indicate the scale of the map
         new ScaleLine()
       ]),
