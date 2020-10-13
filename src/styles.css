@@ -23,5 +23,30 @@
 }
 
 ngb-popover-window {
-  width: 120px;
+  width: 170px;
+}
+
+#close_button_popup > span > i {
+  font-size: 15px;
+}
+
+#close_button_popup {
+  margin-left: 73%;
+  height: 20px;
+  margin-top: -8px;  
+}
+
+#close_button_popup 
+> div.mat-button-focus-overlay,
+#close_button 
+> div.mat-button-focus-overlay,
+#arrow_forward_button
+> div.mat-button-focus-overlay, 
+#close_button_popup 
+> div.mat-button-ripple.mat-ripple,
+#close_button 
+> div.mat-button-ripple.mat-ripple,
+#arrow_forward_button
+> div.mat-button-ripple.mat-ripple {
+  display: none;
 }

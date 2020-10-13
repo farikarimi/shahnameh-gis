@@ -2,7 +2,7 @@
   <!-- The main content of the page is the map. -->
   <mat-sidenav-content role="main">
     <!-- Button for displaying the sidebar -->
-    <button class="arrow_button" id="arrow_forward_button" mat-button (click)="sidenav.open()">
+    <button class="arrow_button" id="arrow_forward_button" mat-button (click)="sidenav.open()" matTooltip="open sidebar">
       <i class="material-icons" id="arrow_forward_ios">arrow_forward_ios</i>
     </button>
     <!-- The map component is embedded here. The "setNewFeature()" method of the sidebar is bound to 
@@ -12,7 +12,7 @@
   <!-- The HTML elements for the sidebar -->
   <mat-sidenav #sidenav mode="over" [(opened)]="opened" role="region">
     <!-- Button for closing the sidebar -->
-    <button class="close" id="close_button" mat-button (click)="sidenav.close()">
+    <button class="close" id="close_button" mat-button (click)="sidenav.close()" matTooltip="close sidebar">
       <i class="material-icons">close</i>
     </button>
     <!-- Sidebar content -->    
@@ -37,7 +37,7 @@
           <p dir="rtl" id="preview-p" class="sideContent" matLine [innerHtml]="preview">
             {{preview}}
           </p>
-          <button id="show-more" mat-list-item matLine (click)="showMoreText(i)">Show more</button>
+          <button id="show-more" mat-list-item matLine (click)="showMoreText(i)" matTooltip="show passage in text">Show more</button>
           <mat-divider id="list-divider" *ngIf="!last"></mat-divider>
         </mat-action-list>
       </div>
@@ -45,7 +45,7 @@
         The <div> is shown if "showText$" is true. -->
       <div *ngIf="showText$ | async">
         <!-- Button for returning to the list of occurrences -->
-        <button class="arrow_button" id="back_button" mat-button (click)="backToOccList()">
+        <button class="arrow_button" id="back_button" mat-button (click)="backToOccList()" matTooltip="back to previews">
           <i class="material-icons">arrow_back</i>
         </button>
         <p id="wholeText" class="sideContent topContent" [innerHtml]="taggedText$ | async | safeHtml">
