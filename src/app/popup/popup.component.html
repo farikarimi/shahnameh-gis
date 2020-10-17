@@ -1,10 +1,19 @@
 <div #popup id="popup">
-    <ng-template #popTitle>{{placeName}}</ng-template>
+    <ng-template #popTitle>
+        <!-- Button to close pop-up -->
+        <button class="close-popup" id="close_button_popup" mat-button (click)="popover.close()" matTooltip="close pop-up">
+            <i class="material-icons">close</i>
+          </button>
+        <!-- English place name -->
+        {{placeName}}
+    </ng-template>
     <ng-template #popContent>
+        <!-- Persian place name -->
         <p id="persianName">{{persianName}}</p>
+        <!-- Wikipedia link of place; The link is opened in a new tab or window (depending on the user's browser settings) when it's clicked. -->
         <div *ngIf="wikiLink">
             <span id="wiki-link"><a href="https://{{wikiLink}}" target="_blank">Wikipedia page</a></span>
         </div>
     </ng-template>
-    <span [ngbPopover]="popContent" [popoverTitle]="popTitle" triggers="manual" #popover="ngbPopover"></span>
+    <span autoClose="inside" [ngbPopover]="popContent" [popoverTitle]="popTitle" triggers="manual" #popover="ngbPopover"></span>
 </div>
